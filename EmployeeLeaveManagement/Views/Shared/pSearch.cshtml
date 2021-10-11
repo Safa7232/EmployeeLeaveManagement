@@ -1,0 +1,23 @@
+﻿@model EmployeeLeaveManagement.ViewModels.EmployeeViewModel
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Designation</th>
+    </tr>
+    <tr>
+        <td class="text-dark">
+            <a href="/account/viewprofile/@Model.EmployeeID" > @Model.FirstName @Model.LastName</a>
+        </td>
+
+        <td>
+            @Model.Designation
+
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    $('#buttonid').click(function (){
+        document.location = '@Url.Action("ViewProfile", "account")'
+    })
+</script>

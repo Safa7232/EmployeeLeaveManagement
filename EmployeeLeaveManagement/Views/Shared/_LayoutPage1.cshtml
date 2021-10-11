@@ -1,0 +1,151 @@
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title-EmployeeManagement</title>
+    <link href="MyPageLayout.css" rel="stylesheet" type="text/css" ms-design-css-conversion="no" />
+
+    @Styles.Render("~/Styles/bootstrap")
+    @Styles.Render("~/Styles/site")
+    @Scripts.Render("~/Scripts/bootstrap")
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-light">
+
+
+            <div class="collapse navbar-collapse" id="collapsibleNavBar">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/home/index">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home/contact">Contact</a>
+                    </li>
+
+                    @if (Session["CurrentUserEmail"] == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/account/login">Login</a>
+                        </li>
+
+                    }
+
+
+                    @if (Session["CurrentUserEmail"] != null)
+                    {
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                Leave
+                            </a>
+                            <div class="dropdown-menu bg-info">
+                                <a class="dropdown-item" href="/leave/leaverequest">Leave Request</a>
+                                <a class="dropdown-item" href="/leave/leavestatus">Leave status</a>
+
+                            </div>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/account/myprofile">My Profile</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                <img src="~/Images/user.png" width="20px" />
+                                @Session["CurrentUserFirstName"]
+                            </a>
+                            <div class="dropdown-menu bg-info">
+                                <a class="dropdown-item" href="/account/logout">Logout</a>
+                                <a class="dropdown-item" href="/account/editprofile">Edit Profile</a>
+                                <a class="dropdown-item" href="/account/editpassword">Edit Password</a>
+                            </div>
+                        </li>
+                    }
+
+                    @if (Session["CurrentUserRoleID"] is 2)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                Leave Applictions
+                            </a>
+                            <div class="dropdown-menu bg-info">
+                                <a class="dropdown-item" href="/leave/leaveupdation">View Leave Requests</a>
+                                
+
+                            </div>
+                        </li>
+                    }
+
+                    @if (Session["CurrentUserIsSpecialPermission"] is true)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                Leave Applictions
+                            </a>
+                            <div class="dropdown-menu bg-info">
+                                <a class="dropdown-item" href="/leave/leaveupdation">View Leave Requests</a>
+                                <a class="dropdown-item" href="/leave/leavestatus">Leave status</a>
+
+                            </div>
+                        </li>
+                    }
+
+                    @if (Session["CurrentUserRoleID"] is 1)
+                    {
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                Employee
+                            </a>
+                            <div class="dropdown-menu bg-info">
+                                <a class="dropdown-item" href="/account/addemployee">Add Employee</a>
+                                <a class="dropdown-item" href="/account/employees">View Employees</a>
+
+                            </div>
+                        </li>
+
+
+                        @*<li class="nav-item">
+                    <a class="nav-link" href="/account/addemployee">Add Employee</a>
+                </li>*@
+
+                    }
+
+                </ul>
+
+                @if (Session["CurrentUserRoleID"] is 1)
+                {
+
+            <form class="form-inline" action="/account/search" method="post">
+
+                <select name="RoleID">
+                    <option value="0">All</option>
+                    <option value="1">HR</option>
+                    <option value="4">QA</option>
+                    <option value="3">Developer</option>
+                    <option value="2">Project Manager</option>
+                </select>
+
+
+
+                <input type="search" class="" style="width:200px" placeholder="Search" name="str">
+
+                <button class="btn btn-success">Search</button>
+
+            </form>
+
+                }
+
+                </div>
+            
+        </nav>
+        @RenderBody()
+    </div>
+</body>
+</html>
