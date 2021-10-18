@@ -14,13 +14,10 @@ namespace EmployeeLeaveManagement.Controllers
     public class LeaveController : Controller
     {
         ILeaveService leaveService;
-        IEmployeeService employeeService;
-
-
-        public LeaveController(ILeaveService leaveService, IEmployeeService employeeService)
+      
+        public LeaveController(ILeaveService leaveService )
         {
             this.leaveService = leaveService;
-            this.employeeService = employeeService;
         }
         // GET: Leave
         [UserAuthorizationFilter]
@@ -65,40 +62,11 @@ namespace EmployeeLeaveManagement.Controllers
         {
             
             MailViewModel MailViewModel = this.leaveService.UpdateLeaveStatusByLeaveID(updateLeave);
-            try
-            {
-                var senderEmail = new MailAddress("mvcp990@gmail.com", "mvc");
-                var receiverEmail = new MailAddress(MailViewModel.Email, "Receiver");
-                var password = "mvcp1234";
-                var sub = MailViewModel.LeaveStatus + " your leave request";
-                var body = MailViewModel.FirstName + ", your leave request has been " + MailViewModel.LeaveStatus;
-                var smtp = new SmtpClient
-                {
-                    Host = "smtp.gmail.com",
-                    Port = 587,
-                    EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(senderEmail.Address, password)
-                };
-                using (var mess = new MailMessage(senderEmail, receiverEmail)
-                {
-                    Subject = sub,
-                    Body = body
-                })
-                {
-                    smtp.Send(mess);
-                }
-            }
-            catch (Exception)
-            {
-                ViewBag.Error = "Some Error";
-            }
+
+            leaveService.SendEmail(MailViewModel);
+
             return RedirectToAction("LeaveUpdation", "Leave");
 
-
         }
-
-        
     }
 }
