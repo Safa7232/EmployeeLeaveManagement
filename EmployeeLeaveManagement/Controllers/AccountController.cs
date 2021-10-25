@@ -42,6 +42,7 @@ namespace EmployeeLeaveManagement.Controllers
                 if (employeeViewModel != null)
                 {
                     Session["CurrentUserID"] = employeeViewModel.EmployeeID;
+                    Session["CurrentUserFirstName"]= employeeViewModel.FirstName + " " + employeeViewModel.LastName;
                     Session["CurrentUserFirstName"] = employeeViewModel.FirstName;
                     Session["CurrentUserLastName"] = employeeViewModel.LastName;
                     Session["CurrentUserEmail"] = employeeViewModel.Email;
@@ -49,7 +50,7 @@ namespace EmployeeLeaveManagement.Controllers
                     Session["CurrentUserRoleID"] = employeeViewModel.RoleID ;
                     Session["CurrentUserIsSpecialPermission"] = employeeViewModel.IsSpecialPermission;
                     Session["CurrentUserDesignation"] = employeeViewModel.Designation;
-
+                    Session["CurrentUserProfilePhoto"] = employeeViewModel.ImageURL;
 
                     if (employeeViewModel != null)
                     {

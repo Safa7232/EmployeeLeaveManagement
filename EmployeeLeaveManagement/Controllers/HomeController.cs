@@ -14,10 +14,5 @@ namespace EmployeeLeaveManagement.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            return View();
-        }
-
     }
 }

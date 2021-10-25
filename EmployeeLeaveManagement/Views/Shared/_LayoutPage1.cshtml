@@ -23,9 +23,9 @@
                         <a class="nav-link" href="/home/index">Home</a>
                     </li>
 
-                    <li class="nav-item">
+                    @*<li class="nav-item">
                         <a class="nav-link" href="/home/contact">Contact</a>
-                    </li>
+                    </li>*@
 
                     @if (Session["CurrentUserEmail"] == null)
                     {
@@ -60,7 +60,7 @@
                                 <img src="~/Images/user.png" width="20px" />
                                 @Session["CurrentUserFirstName"]
                             </a>
-                            <div class="dropdown-menu bg-info">
+                            <div id="profile" class="dropdown-menu bg-info">
                                 <a class="dropdown-item" href="/account/logout">Logout</a>
                                 <a class="dropdown-item" href="/account/editprofile">Edit Profile</a>
                                 <a class="dropdown-item" href="/account/editpassword">Edit Password</a>
@@ -90,7 +90,7 @@
                             </a>
                             <div class="dropdown-menu bg-info">
                                 <a class="dropdown-item" href="/leave/leaveupdation">View Leave Requests</a>
-                                <a class="dropdown-item" href="/leave/leavestatus">Leave status</a>
+                                @*<a class="dropdown-item" href="/leave/leavestatus">Leave status</a>*@
 
                             </div>
                         </li>
@@ -122,13 +122,12 @@
                 @if (Session["CurrentUserRoleID"] is 1)
                 {
 
-            <form class="form-inline" action="/account/search" method="post">
+            <form id ="search" class="form-inline" action="/account/search" method="post">
 
                 <select name="RoleID">
                     <option value="0">All</option>
                     <option value="1">HR</option>
-                    <option value="4">QA</option>
-                    <option value="3">Developer</option>
+                    <option value="3">Employee</option>
                     <option value="2">Project Manager</option>
                 </select>
 

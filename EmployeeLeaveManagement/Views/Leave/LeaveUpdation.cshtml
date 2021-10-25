@@ -15,10 +15,13 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
+                                
+                                <th>Employee Name</th>
                                 <th>From Date</th>
                                 <th>To Date</th>
                                 <th>Description</th>
                                 <th>Status</th>
+                                <th colspan="2">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,6 +30,8 @@
                             @foreach (var item in Model)
                             {
                             <tr>
+                                
+                                <td>@item.FirstName @item.LastName</td>
                                 <td>@item.StartDate.ToString("dd-MMMM-yyyy")</td>
                                 <td>@item.EndDate.ToString("dd-MMMM-yyyy")</td>
                                 <td>@item.LeaveReason</td>
@@ -50,8 +55,9 @@
 
                                 <td>
                                     <form action="/leave/leaveupdation" method="post">
-                                        <input name="LeaveID" value="@item.LeaveID"   hidden />
-                                        <input name="LeaveStatus" value="Rejected"  hidden />
+                                        <input name="LeaveID" value="@item.LeaveID" hidden />
+                    
+                                        <input name="LeaveStatus" value="Rejected" hidden />
                                         <input type="Submit" class="btn btn-danger" value="Reject" />
                                     </form>
                                 </td>

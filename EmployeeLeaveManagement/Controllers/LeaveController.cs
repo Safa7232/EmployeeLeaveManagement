@@ -14,10 +14,13 @@ namespace EmployeeLeaveManagement.Controllers
     public class LeaveController : Controller
     {
         ILeaveService leaveService;
-      
-        public LeaveController(ILeaveService leaveService )
+        IEmployeeService employeeService;
+
+
+        public LeaveController(ILeaveService leaveService, IEmployeeService employeeService)
         {
             this.leaveService = leaveService;
+            this.employeeService = employeeService;
         }
         // GET: Leave
         [UserAuthorizationFilter]

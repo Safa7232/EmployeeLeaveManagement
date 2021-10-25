@@ -14,6 +14,11 @@ namespace EmployeeLeaveManagement.ViewModels
 
         public int EmployeeID { get; set; }
 
+        public DateTime TimeSpan { get; set; }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
         [Required]
         public DateTime StartDate { get; set; }
 

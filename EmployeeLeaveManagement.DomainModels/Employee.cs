@@ -36,5 +36,8 @@ namespace EmployeeLeaveManagement.DomainModels
         [ForeignKey("RoleID")]
         public virtual Roles Role { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeRealOnly")]
+        public virtual ICollection<Leave> Leaves { get; set; }
+
     }
 }

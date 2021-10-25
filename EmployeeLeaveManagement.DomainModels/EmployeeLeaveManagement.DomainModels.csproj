@@ -79,6 +79,26 @@
     <Compile Include="Migrations\202110080833474_update5.designer.cs">
       <DependentUpon>202110080833474_update5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110180808170_update6.cs" />
+    <Compile Include="Migrations\202110180808170_update6.designer.cs">
+      <DependentUpon>202110180808170_update6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110251719485_update7.cs" />
+    <Compile Include="Migrations\202110251719485_update7.designer.cs">
+      <DependentUpon>202110251719485_update7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110251916119_update8.cs" />
+    <Compile Include="Migrations\202110251916119_update8.designer.cs">
+      <DependentUpon>202110251916119_update8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110252049372_update9.cs" />
+    <Compile Include="Migrations\202110252049372_update9.designer.cs">
+      <DependentUpon>202110252049372_update9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110252122421_update10.cs" />
+    <Compile Include="Migrations\202110252122421_update10.designer.cs">
+      <DependentUpon>202110252122421_update10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="Employee.cs" />
@@ -111,6 +131,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110080833474_update5.resx">
       <DependentUpon>202110080833474_update5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110180808170_update6.resx">
+      <DependentUpon>202110180808170_update6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110251719485_update7.resx">
+      <DependentUpon>202110251719485_update7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110251916119_update8.resx">
+      <DependentUpon>202110251916119_update8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110252049372_update9.resx">
+      <DependentUpon>202110252049372_update9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110252122421_update10.resx">
+      <DependentUpon>202110252122421_update10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
