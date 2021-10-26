@@ -308,6 +308,7 @@
     <Content Include="Views\Account\Search.cshtml" />
     <Content Include="Views\Shared\pSearch.cshtml" />
     <Content Include="Views\Account\ViewProfile.cshtml" />
+    <Content Include="Views\Shared\ImageView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -52,8 +52,27 @@ namespace EmployeeLeaveManagement.Repositories
 
         public List<Leave> GetLeaveByEmployeeID(int EmployeeID)
         {
+            List<Leave> leaveReqNmae = new List<Leave>();
+
             List<Leave> leave = db.Leave.Where(temp => temp.EmployeeID == EmployeeID).ToList();
+
+            foreach (var item in leave)
+            {
+                leaveReqNmae.Add(new Leave
+                {
+                    LeaveID = item.LeaveID,
+                    StartDate = item.StartDate,
+                    EndDate = item.EndDate,
+                    LeaveReason = item.LeaveReason,
+                    LeaveStatus = item.LeaveStatus,
+                    FirstName = db.Employee.Where(temp => temp.EmployeeID == item.EmployeeID).Select(m => m.FirstName).ToList().FirstOrDefault(),
+                    LastName = db.Employee.Where(temp => temp.EmployeeID == item.EmployeeID).Select(m => m.LastName).ToList().FirstOrDefault()
+                });
+
+            }
             return leave;
+
+
         }
 
         public int GetLatestLeaveID()
@@ -64,7 +83,7 @@ namespace EmployeeLeaveManagement.Repositories
 
         public List<Leave> GetLeaves()
         {
-            List<Leave> leave = db.Leave.OrderByDescending(temp => temp.StartDate).ToList();
+            List<Leave> leave = db.Leave.OrderBy(temp => temp.StartDate).ToList();
             return leave;
         }
     }
