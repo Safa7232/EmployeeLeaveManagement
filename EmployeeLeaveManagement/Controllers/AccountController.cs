@@ -96,6 +96,21 @@ namespace EmployeeLeaveManagement.Controllers
 
         public ActionResult EditProfile(EditEmployeeDetailsViewModel EditEmpDetail)
         {
+            
+                var file = Request.Files[0];
+                var imagebyte = new byte[file.ContentLength - 1];
+                file.InputStream.Read(imagebyte, 0, file.ContentLength - 1);
+                var base64string = Convert.ToBase64String(imagebyte, 0, imagebyte.Length);
+                byte[] data = Convert.FromBase64String(base64string);
+                EditEmpDetail.EmployeeID = Convert.ToInt32(Session["CurrentUserID"]);
+                string folderPath = Server.MapPath("~/Images/");
+                folderPath = folderPath + EditEmpDetail.EmployeeID + ".jpeg";
+                string imagepath = EditEmpDetail.ImageURL = "/Images/" + EditEmpDetail.EmployeeID + ".jpeg";
+                System.IO.File.WriteAllBytes(folderPath, data);
+                Session["CurrentUserProfilePhoto"] = EditEmpDetail.ImageURL;
+
+            
+
             if (ModelState.IsValid)
             {
                 EditEmpDetail.EmployeeID = Convert.ToInt32(Session["CurrentUserID"]);

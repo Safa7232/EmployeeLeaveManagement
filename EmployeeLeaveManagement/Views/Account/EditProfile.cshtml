@@ -7,57 +7,62 @@
 <div class="row">
     <div class="col-sm-12">
         <h1>Change Profile</h1>
-        <form novalidate="novalidate" action="/account/editprofile" method="post" class="needs-validation">
-            @Html.AntiForgeryToken()
-            <div class="form-row">
-                <div class="form-group col-sm-12">
-                    <label for="txtName">First Name</label>
-                    <input type="text" class="form-control" id="txtName" placeholder="Enter First name" name="FirstName" required="required" pattern="^[a-zA-Z ]*$" autofocus="autofocus" value="@Model.FirstName" />
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        Please enter name [alphabets only].
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-sm-12">
-                    <label for="txtName">Last Name</label>
-                    <input type="text" class="form-control" id="txtName" placeholder="Enter Last name" name="LastName" required="required" pattern="^[a-zA-Z ]*$" autofocus="autofocus" value="@Model.LastName" />
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        Please enter name [alphabets only].
+        <form novalidate="novalidate" action="/account/editprofile" method="post" class="needs-validation" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div class="form-row">
+                    <div class="form-group col-sm-12">
+                        <label for="txtName">First Name</label>
+                        <input type="text" class="form-control" id="txtName" placeholder="Enter First name" name="FirstName" required="required" pattern="^[a-zA-Z ]*$" autofocus="autofocus" value="@Model.FirstName" />
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter name [alphabets only].
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-row">
-                <div class="form-group col-sm-6">
-                    <label for="txtEmail">Email</label>
-                    @Html.HiddenFor(temp => temp.Email)
-                    <span>@Model.Email</span>
-                </div>
-
-                <div class="form-group col-sm-6">
-                    <label for="txtMobile">Mobile</label>
-                    <input type="text" class="form-control" id="txtMobile" placeholder="Mobile" name="ContactNumber" required="required" pattern="^[789]\d{9}$" value="@Model.ContactNumber" />
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        Invalid mobile Number.
+                <div class="form-row">
+                    <div class="form-group col-sm-12">
+                        <label for="txtName">Last Name</label>
+                        <input type="text" class="form-control" id="txtName" placeholder="Enter Last name" name="LastName" required="required" pattern="^[a-zA-Z ]*$" autofocus="autofocus" value="@Model.LastName" />
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter name [alphabets only].
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            @Html.ValidationSummary()
-            <button type="submit" class="btn btn-primary">Update Profile</button>
-        </form>
-    </div>
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label for="txtEmail">Email</label>
+                        @Html.HiddenFor(temp => temp.Email)
+                        <span>@Model.Email</span>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label for="txtMobile">Mobile</label>
+                        <input type="text" class="form-control" id="txtMobile" placeholder="Mobile" name="ContactNumber" required="required" pattern="^[789]\d{9}$" value="@Model.ContactNumber" />
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Invalid mobile Number.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Add New Profile Photo </label><input id="myFile" type="file" class="form-control-file" name="ImageURL" value="@Model.ImageURL"></div>
+
+                </div>
+
+                @Html.ValidationSummary()
+                <button type="submit" class="btn btn-primary">Update Profile</button>
+            </form>
+</div>
 </div>
 
 <script>

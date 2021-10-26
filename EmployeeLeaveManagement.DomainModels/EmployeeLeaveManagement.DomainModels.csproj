@@ -99,6 +99,10 @@
     <Compile Include="Migrations\202110252122421_update10.designer.cs">
       <DependentUpon>202110252122421_update10.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110252254249_update11.cs" />
+    <Compile Include="Migrations\202110252254249_update11.designer.cs">
+      <DependentUpon>202110252254249_update11.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="Employee.cs" />
@@ -146,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110252122421_update10.resx">
       <DependentUpon>202110252122421_update10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110252254249_update11.resx">
+      <DependentUpon>202110252254249_update11.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -30,6 +30,8 @@ namespace EmployeeLeaveManagement.ViewModels
         [Required]
         public string Designation { get; set; }
 
+        public string ImageURL { get; set; }
+
     }
 }
 

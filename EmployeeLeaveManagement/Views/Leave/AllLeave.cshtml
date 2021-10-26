@@ -15,6 +15,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
+                                <th>Employee ID</th>
                                 <th>From Date</th>
                                 <th>To Date</th>
                                 <th>Description</th>
@@ -27,6 +28,7 @@
                             @foreach (var item in Model)
                             {
                 <tr>
+                            <td>@item.EmployeeID</td>
                     <td>@item.StartDate.ToString("dd-MMMM-yyyy")</td>
                     <td>@item.EndDate.ToString("dd-MMMM-yyyy")</td>
                     <td>@item.LeaveReason</td>

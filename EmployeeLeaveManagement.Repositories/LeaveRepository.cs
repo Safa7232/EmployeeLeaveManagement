@@ -13,9 +13,9 @@ namespace EmployeeLeaveManagement.Repositories
         Employee UpdateLeaveStatusByLeaveID(Leave leaveReq);
 
         List<Leave> GetLeaves();
-        List<Leave> GetLeaveByEmployeeID(int EmployeeID);
 
-         int GetLatestLeaveID();
+        List<Leave> GetLeaveByEmployeeID(int EmployeeID);
+        int GetLatestLeaveID();
 
 
     }
@@ -56,21 +56,21 @@ namespace EmployeeLeaveManagement.Repositories
 
             List<Leave> leave = db.Leave.Where(temp => temp.EmployeeID == EmployeeID).ToList();
 
-            foreach (var item in leave)
-            {
-                leaveReqNmae.Add(new Leave
-                {
-                    LeaveID = item.LeaveID,
-                    StartDate = item.StartDate,
-                    EndDate = item.EndDate,
-                    LeaveReason = item.LeaveReason,
-                    LeaveStatus = item.LeaveStatus,
-                    FirstName = db.Employee.Where(temp => temp.EmployeeID == item.EmployeeID).Select(m => m.FirstName).ToList().FirstOrDefault(),
-                    LastName = db.Employee.Where(temp => temp.EmployeeID == item.EmployeeID).Select(m => m.LastName).ToList().FirstOrDefault()
-                });
-
-            }
             return leave;
+            //foreach (var item in leave)
+            //{
+            //    leaveReqNmae.Add(new Leave
+            //    {
+            //        LeaveID = item.LeaveID,
+            //        StartDate = item.StartDate,
+            //        EndDate = item.EndDate,
+            //        LeaveReason = item.LeaveReason,
+            //        LeaveStatus = item.LeaveStatus,
+            //        FirstName = db.Employee.Where(temp => temp.EmployeeID == item.EmployeeID).Select(m => m.FirstName).ToList().FirstOrDefault(),
+            //        LastName = db.Employee.Where(temp => temp.EmployeeID == item.EmployeeID).Select(m => m.LastName).ToList().FirstOrDefault()
+            //    });
+
+            //}
 
 
         }
@@ -86,5 +86,7 @@ namespace EmployeeLeaveManagement.Repositories
             List<Leave> leave = db.Leave.OrderBy(temp => temp.StartDate).ToList();
             return leave;
         }
+
+        
     }
 }

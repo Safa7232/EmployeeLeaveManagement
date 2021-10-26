@@ -79,7 +79,7 @@ namespace EmployeeLeaveManagement.Repositories
 
         public List<Employee> GetEmployeesByEmailAndPassword(string Email, string PasswordHash)
         {
-            List<Employee> emps = db.Employee.Where(temp => temp.Email == Email && temp.PasswordHash == PasswordHash).ToList();
+             List<Employee> emps = db.Employee.Where(temp => temp.Email == Email && temp.PasswordHash == PasswordHash).ToList();
             return emps;
         }
 

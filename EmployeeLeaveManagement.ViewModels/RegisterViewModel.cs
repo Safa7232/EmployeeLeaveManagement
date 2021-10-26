@@ -36,5 +36,7 @@ namespace EmployeeLeaveManagement.ViewModels
         public string Designation { get; set; }
 
         public int RoleID { get; set; }
+
+        public string ImageURL { get; set; }
     }
 }

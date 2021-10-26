@@ -6,34 +6,46 @@
 <div class="login-box" style="width:600px">
     <h4>My Profile - @Session["CurrentUserFirstName"] @Session["CurrentUserLastName"]</h4>
 
-    <img src="~/Images/user.png" width="100px" />
-    <tr>
-        <td> Employee ID : @Session["CurrentUserID"]</td>
-    </tr>
-    <br />
-    <tr>
-        <td> First Name : @Session["CurrentUserFirstName"]</td>
-    </tr>
-    <br />
-    <tr>
-        <td> Last Name : @Session["CurrentUserLastName"]</td>
-    </tr>
-    <br />
-    <tr>
-        <td> Mobile : @Session["CurrentUserContactNumber"]</td>
-    </tr>
-    <br />
-    <tr>
-        <td>  Designation : @Session["CurrentUserDesignation"]</td>
-    </tr>
-    <br />
-    <tr>
-        <td>Email ID :  @Session["CurrentUserEmail"]</td>
+    <div class="card-body">
+        <div class="row justify-content-center">
+            <div class="col-sm-3 justify-content-end mt-0 container">
+                @if (Model.ImageURL != null)
+                {
+                    <img src="@Model.ImageURL" width="120" />
+                    
+                }
+                else
+                {
+            <img src="~/Images/user.png" width="100px" />
+                }
+                
+            <tr>
+                <td> Employee ID : @Session["CurrentUserID"]</td>
+            </tr>
+            <br />
+            <tr>
+                <td> First Name : @Session["CurrentUserFirstName"]</td>
+            </tr>
+            <br />
+            <tr>
+                <td> Last Name : @Session["CurrentUserLastName"]</td>
+            </tr>
+            <br />
+            <tr>
+                <td> Mobile : @Session["CurrentUserContactNumber"]</td>
+            </tr>
+            <br />
+            <tr>
+                <td>  Designation : @Session["CurrentUserDesignation"]</td>
+            </tr>
+            <br />
+            <tr>
+                <td>Email ID :  @Session["CurrentUserEmail"]</td>
 
-    </tr>
-</div>
+            </tr>
+        </div>
 
 
-<script>
-    $("a[href='/allquestions']").attr("id", "active");
-</script>
+        <script>
+            $("a[href='/allquestions']").attr("id", "active");
+        </script>
